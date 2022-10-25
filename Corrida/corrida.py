@@ -1,6 +1,7 @@
 #Informar a distância e tempo da corrida
 distancia           = input('Informe a distância percorrida em KM: ')
 tempo               = input('Informe o tempo, formato HH:MM:SS : ')
+pace1               = input('Informe o pace: ')
 
 #calculo do pace
 from datetime import datetime
@@ -8,6 +9,7 @@ minutos             = datetime.strptime(tempo, "%H:%M:%S").minute
 hora                = (datetime.strptime(tempo, "%H:%M:%S").hour)*60
 segundos            = (datetime.strptime(tempo, "%H:%M:%S").second)/60
 var1                = (minutos + hora + segundos)/float(distancia)
+var2                = (minutos + hora + segundos)/(datetime.strptime(pace1, "%M:%S").minute)
 num                 = float((var1 - int(var1))*60)/100
 pace                = int(var1) + num
 
@@ -31,3 +33,4 @@ print('O pace da corrida é: ' + str(n_formatado)+ ' min/km')
 print('A velocidade média é: ' + str(v_formatado) + ' km/h')
 print('A velocidade média é: ' + str(ms_formatado) + ' m/s')
 print('A velocidade média é: ' + str(milha_formatado) + ' milhas/h')
+print(var2)
